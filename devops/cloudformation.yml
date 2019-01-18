@@ -1,0 +1,38 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Resources:
+  BeersTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: "Beers"
+      AttributeDefinitions:
+        -
+          AttributeName: "UUID"
+          AttributeType: "S"
+        -
+          AttributeName: "DateBrewed"
+          AttributeType: "S"
+        -
+          AttributeName: "IsOnTap"
+          AttributeType: "N"
+      KeySchema:
+        -
+          AttributeName: "UUID"
+          KeyType: "HASH"
+        -
+          AttributeName: "DateBrewed"
+          KeyType: "RANGE"
+      GlobalSecondaryIndexes:
+        -
+          IndexName: "IsOnTapIdx"
+          KeySchema:
+            -
+              AttributeName: "IsOnTap"
+              KeyType: "HASH"
+          Projection:
+            ProjectionType: "ALL"
+          ProvisionedThroughput:
+            ReadCapacityUnits: "5"
+            WriteCapacityUnits: "5"
+      ProvisionedThroughput:
+        ReadCapacityUnits: "5"
+        WriteCapacityUnits: "5"
