@@ -15,3 +15,7 @@ serde = "^1"
 serde_json = "^1"
 serde_derive = "^1"
 simple_logger = "^1"
+
+[[bin]]
+name = "whats_on_tap"
+path = "src/whats_on_tap/main.rs"

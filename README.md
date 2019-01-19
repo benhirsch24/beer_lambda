@@ -14,6 +14,10 @@ Run `./build.sh`. This mounts the current directory as /code as well as some .ca
 
 # To test
 
-Run `./test.sh`
+Run `./test.sh <binary name>`
 
 This runs the handler within the beer\_lambda image with a test JSON blob provided.
+
+Binary name can be one of:
+
+* whats\_on\_tap

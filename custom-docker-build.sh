@@ -20,6 +20,7 @@ cd "$CARGO_TARGET_DIR"/release
     ); do
         strip "$file"
         rm "$file.zip" > 2&>/dev/null || true
+        echo "$file"
         # note: would use printf "@ $(basename $file)\n@=bootstrap" | zipnote -w "$file.zip"
         # if not for https://bugs.launchpad.net/ubuntu/+source/zip/+bug/519611
         mv "$file" bootstrap
